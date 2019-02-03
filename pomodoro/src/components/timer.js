@@ -4,35 +4,68 @@ import React, { Component } from 'react';
 class Timer extends Component {
 
 
-
     render() {
         return (
             <div className="main">
-            <div className="logo">
-            <p>Pomodoro</p>
-            </div>
-                <div className="time">
-                    <p>
-                    {this.props.value.minutes < 10
-                ? "0" + this.props.value.minutes
-                : this.props.value.minutes}
-              :
-              {this.props.value.seconds < 10
-                ? "0" + this.props.value.seconds
-                : this.props.value.seconds}
-                    </p>
-                    
-                    <div>
-                        <button onClick={this.props.addclick}><i className="fas fa-plus"></i></button>
-                        <button onClick={this.props.removeclick}><i className="fas fa-minus"></i></button>
-                    </div>
+
+    {/* Title */}
+
+                <div className="logo">
+
+                    <p>Pomodoro</p>
+
                 </div>
 
-                <div className="toggle">
-                    <button onClick={this.props.handleStart} >Start</button>
-                    <button onClick={this.stopTimer} >Stop</button>
-                    <button onClick={this.resetTimer} >Reset</button>
+    {/* Rendering of the minutes and seconds */}
+
+                <div className="time">
+                    <p>
+                        {this.props.timeNow.minute < 10
+                            ? "0" + this.props.timeNow.minute
+                            : this.props.timeNow.minute}
+                        :
+              {this.props.timeNow.seconde < 10
+                            ? "0" + this.props.timeNow.seconde
+                            : this.props.timeNow.seconde}
+                    </p>
                 </div>
+
+                <div>
+
+                    <button
+                        className={
+                            this.props.timeNow.start ? "invisible" : "card-footer-item"
+                        }
+                        disabled={this.props.stop}
+                        onClick={this.props.addclick}
+                        className="addOrRemove">
+                        <i className="fas fa-plus"></i>
+                    </button>
+
+                    <button
+                        className={
+                            this.props.timeNow.start ? "invisible" : "card-footer-item"
+                        }
+                        onClick={this.props.removeclick}
+                        className="addOrRemove" >
+                        <i className="fas fa-minus"></i>
+                    </button>
+
+                </div>
+
+    {/* Buttons: either Start or Reset depending on the state of the click*/}
+
+                <div className="toggle">
+
+                    <button
+                        className="card-footer-item"
+                        onClick={this.props.startButton}
+                    >
+                        {this.props.timeNow.start ? "Reset" : "Start"}
+                    </button>
+
+                </div>
+
             </div>
         );
     }

@@ -1,5 +1,6 @@
 body{
   background-color: black;
+  padding: 15px;
 }
 
 .main{
@@ -24,16 +25,18 @@ body{
     margin: 20px 20px 0;
     width: auto;
   }
+  .time p{
+    width: auto;
+  }
 }
 
 .time{
   margin: 50px auto;
-  width: 400px;
+  max-width: 400px;
   font-size: 3.5em;
   font-family: 'Rock Salt', cursive;
   padding: 10px;
   color: lightseagreen;
-
 }
 
 .logo{
@@ -55,14 +58,27 @@ button {
   border-radius: 20px;
   text-transform: uppercase;
   margin: 3px;
-  width: 120px;
+  width: 220px;
+  height: 80px;
 }
+
 
 button:hover {
   border: 1px solid lightskyblue;
   border-radius: 20px;
   color: lightskyblue ;
 }
+
+.addOrRemove{
+background-color: darkcyan;
+width: 60px;
+height: 60px;
+}
+
+.addOrRemove:hover{
+  color: black;
+}
+
 
 .minutes{
   background-color: black;
